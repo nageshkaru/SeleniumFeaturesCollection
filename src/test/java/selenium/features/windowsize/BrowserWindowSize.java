@@ -54,6 +54,7 @@ public class BrowserWindowSize {
         System.out.println("Current window position in X: "+currentPositionX);
         System.out.println("Current window position in Y: "+currentPositionY);
 	
+        driver.quit();
         
 	}
 	
