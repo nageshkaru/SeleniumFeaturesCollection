@@ -1,4 +1,4 @@
-package selenium.features;
+package selenium.features.webdrivermanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +19,7 @@ public class WebDriverManagerTest
 	public static void main(String[] args) {
 		
 		System.out.println("Launching Chrome Browser");
-    	// setup chrome binary
+    	//setup chrome binary
 		WebDriverManager.chromedriver().setup();
     	//this ChromeOptions added for prevent connection reset error
     	ChromeOptions options = new ChromeOptions();
@@ -30,7 +30,7 @@ public class WebDriverManagerTest
         driver.quit();
         
         System.out.println("Launching Firefox Browser");
-     // setup firefox binary
+        //setup firefox binary
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.get("https://google.com/");
