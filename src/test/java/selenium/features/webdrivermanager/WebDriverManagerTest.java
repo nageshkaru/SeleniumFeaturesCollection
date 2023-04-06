@@ -21,10 +21,7 @@ public class WebDriverManagerTest
 		System.out.println("Launching Chrome Browser");
     	//setup chrome binary
 		WebDriverManager.chromedriver().setup();
-    	//this ChromeOptions added for prevent connection reset error
-    	ChromeOptions options = new ChromeOptions();
-    	options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
         driver.get("https://google.com/");
         System.out.println(driver.getTitle());
         driver.quit();

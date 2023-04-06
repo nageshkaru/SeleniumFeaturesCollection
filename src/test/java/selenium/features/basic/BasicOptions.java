@@ -1,6 +1,8 @@
-package selenium.features.elements;
+package selenium.features.basic;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,16 +12,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Element {
+public class BasicOptions {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Launching Browser");
-		WebDriverManager.chromedriver().setup();
-		
-		ChromeOptions options = new ChromeOptions();
-    	options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
+    	
+        WebDriver driver = new ChromeDriver();
         
         driver.manage().window().maximize(); // maximize the browser
         
@@ -51,16 +49,30 @@ public class Element {
         
         boolean enabled = driver.findElement(By.id("noEdit")).isEnabled(); // check the element enabled
 		 
-        System.out.println("Element enabled status: "+enabled);
+        System.out.println("Element enabled status of noEdit btn: "+enabled);
         
-        String readOnly = driver.findElement(By.id("dontwrite")).getAttribute("readonly");
-        if(!readOnly.equals(null))
-        	System.out.println("Element is readOnly ");
-        else
-        	System.out.println("Element is not readOnly ");
+        driver.get("https://letcode.in/radio");
         
-        driver.quit();
+        boolean selectedStatusOfYes = driver.findElement(By.id("yes")).isSelected();
         
+        System.out.println("Element enabled status of yes radio btn: "+selectedStatusOfYes);
+        
+        if(selectedStatusOfYes == false)
+        	driver.findElement(By.id("yes")).click();
+        
+        boolean displayedStatusOfMaybe = driver.findElement(By.id("maybe")).isDisplayed(); //check the element is displayed in the web page
+        
+        System.out.println("Element display status of maybe radio btn: "+displayedStatusOfMaybe);
+        
+        boolean enabledStatusOfMaybe = driver.findElement(By.id("maybe")).isEnabled(); //check the element is enabled for input tags
+        
+        System.out.println("Element enabled status of maybe radio btn: "+enabledStatusOfMaybe);
+        
+        boolean selectedStatusOfRememberMe = driver.findElement(By.xpath("//label[contains(text(),'Remember me')]/input")).isSelected(); // checking the checkbox or toggle btn is selected 
+        
+        System.out.println("Element enabled status of remember me checkbox: "+selectedStatusOfRememberMe);
+        
+        driver.quit();        
         
         
 	}
