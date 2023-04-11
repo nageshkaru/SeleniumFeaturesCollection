@@ -1,4 +1,4 @@
-package com.selenium.windows;
+package selenium.features.windows;
 
 import java.time.Duration;
 

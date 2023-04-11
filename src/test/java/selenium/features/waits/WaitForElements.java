@@ -1,4 +1,4 @@
-package com.selenium.waits;
+package selenium.features.waits;
 
 import java.time.Duration;
 

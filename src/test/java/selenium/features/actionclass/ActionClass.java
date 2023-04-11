@@ -1,4 +1,4 @@
-package com.selenium.actionclass;
+package selenium.features.actionclass;
 
 import java.time.Duration;
 

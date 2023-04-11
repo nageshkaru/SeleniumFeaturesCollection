@@ -1,4 +1,4 @@
-package com.selenium.alert;
+package selenium.features.alert;
 
 import java.time.Duration;
 
